@@ -18,6 +18,17 @@ const Game = () => {
   const [answerIsCorrect, setAnswerIsCorrect] = useState(null);
   const [redraws, setRedraws] = useState(5);
   const [doneStatus, setDoneStatus] = useState(null);
+  const [secondsLeft, setSecondsLeft] = useState(10);
+
+  React.useEffect(() => {
+    if (secondsLeft > 0) {
+      const timer = setTimeout(() => {
+        setSecondsLeft(secondsLeft -1);
+      },1000);
+
+      return () => clearTimeout(timer);
+    }
+  })
 
   const selectNumber = (clickedNumber) => {
     if (selectedNumbers.indexOf(clickedNumber) >= 0 || usedNumbers.indexOf(clickedNumber) >= 0) {
@@ -76,6 +87,7 @@ const Game = () => {
           selectNumber={selectNumber}
           usedNumbers={usedNumbers} />
       }
+      <p>Time Reamining: {secondsLeft}</p>
     </div>
   );
 };
