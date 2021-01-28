@@ -20,7 +20,7 @@ class Game extends React.Component {
   };
 
   selectNumber = (clickedNumber) => {
-    if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {
+    if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0 || this.state.usedNumbers.indexOf(clickedNumber) >= 0) {
        return; 
     }
 
