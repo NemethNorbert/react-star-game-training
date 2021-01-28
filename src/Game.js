@@ -28,7 +28,7 @@ const Game = () => {
 
       return () => clearTimeout(timer);
     }
-  })
+  },[secondsLeft])
 
   const selectNumber = (clickedNumber) => {
     if (selectedNumbers.indexOf(clickedNumber) >= 0 || usedNumbers.indexOf(clickedNumber) >= 0) {
